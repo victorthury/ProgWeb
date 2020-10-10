@@ -1,0 +1,36 @@
+* {
+  margin: 0
+}
+
+div {
+  position: absolute;
+  margin: 10px;
+}
+
+div.blue {
+  width:100px;
+  height:200px;
+  background-color:blue;
+}
+
+div.yellow {
+  left: 100px;
+  width:100px;
+  height:150px;
+  background-color:yellow;
+}
+
+div.red {
+  left: 200px;
+  width:100px;
+  height:150px;
+  background-color:red;
+}
+
+div.green {
+  left: 100px;
+  top: 150px;
+  width:200px;
+  height:50px;
+  background-color:green;
+}
