@@ -1,0 +1,15 @@
+div {
+  width: 650px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+table {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+td {
+  text-align: center;
+}

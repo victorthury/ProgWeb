@@ -1,0 +1,2 @@
+## Explicando uma pequena decisão
+Em `script.js` preferi concatenar o código html fazendo quebra de linha pra ficar mais fácil de ler. Em questão de código, achei que ficou feio, mas prático. Claro que há formas mais elegantes de realizar tal tarefa, mas optei por essa uma vez que atinge os objetivos da atividade.
