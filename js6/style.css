@@ -14,11 +14,9 @@ button {
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
-  position:relative;
+  align-items: flex-end;
 }
 
 .bar {
-  bottom: 0;
-  position: absolute;
   background-color: red;
 }
