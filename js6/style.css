@@ -1,0 +1,24 @@
+.container {
+  margin-bottom: 5px;
+}
+
+input {
+  width: 60px;
+}
+
+button {
+  margin: 10px 0;
+}
+
+#graph {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  position:relative;
+}
+
+.bar {
+  bottom: 0;
+  position: absolute;
+  background-color: red;
+}
