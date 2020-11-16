@@ -394,7 +394,6 @@
   
       relogioGlobal ++;
     }
-    console.log(focos)
   }
 
   init();
