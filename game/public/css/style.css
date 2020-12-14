@@ -1,0 +1,22 @@
+.container {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.title-about {
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
+.vigilante-about {
+  object-fit: cover;
+  object-position: 20% 84%;
+
+  width: 100%;
+  height: 350px;
+}
+
+p {
+  font-family: Roboto, sans-serif;
+}
