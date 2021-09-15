@@ -9,6 +9,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+// rotas exercício 01
 app.use('/users', userRouter);
 app.use('/products', productRouter);
 
