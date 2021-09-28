@@ -31,6 +31,7 @@ const create = async (req, res) => {
       if (err) throw err;
       console.log('Successfully renamed - AKA moved!')
     });
+
     res.send(produto);
   } catch (error){
     res.status(500).json(error);
