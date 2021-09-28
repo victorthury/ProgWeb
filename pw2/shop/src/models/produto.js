@@ -14,9 +14,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Produto.init({
-    nome: DataTypes.STRING,
+    nome: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: {
+          args: [3, 50],
+          msg: "O nome precisa conter entre 3 e 50 caracteres"
+        },
+      },
+    },
     preco: DataTypes.DECIMAL,
-    imagem: DataTypes.BLOB,
+    // imagem: DataTypes.BLOB,
     estoque: DataTypes.INTEGER
   }, {
     sequelize,

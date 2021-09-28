@@ -14,9 +14,9 @@ module.exports = {
       preco: {
         type: Sequelize.DECIMAL
       },
-      imagem: {
-        type: Sequelize.BLOB
-      },
+      // imagem: {
+      //   type: Sequelize.BLOB
+      // },
       estoque: {
         type: Sequelize.INTEGER
       },
