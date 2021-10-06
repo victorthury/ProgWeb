@@ -1,29 +1,40 @@
 import express from 'express';
+import { v4 as uuid } from 'uuid';
+import session from 'express-session';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from './swagger.json';
+import routes from './routes';
 import userRouter from './routes/users';
 import productRouter from './routes/products';
-import produtosRouter from './routes/produtos';
+
 
 require('dotenv').config()
 
 const app = express();
-const PORT = 3000;
 
+// middlewares
 app.use(express.json());
-// rotas exercício 01
-app.use('/users', userRouter);
-app.use('/products', productRouter);
 
-// rotas shop
-app.use('/produtos', produtosRouter);
+app.use(session({
+  genid: () => uuid(),
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { expires: 10000 }
+}));
+
+app.use(routes);
+
+app.get('/uuid', (req, res) => {
+  res.send({ uuid: uuid()});
+});
 
 // swagger
-var swaggerUi = require('swagger-ui-express'),
-  swaggerDocument = require('./swagger.json');
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/v1', userRouter);
 app.use('/api/v1', productRouter);
 
 app.listen(process.env.NODE_DOCKER_PORT, () => {
-  console.log(`listening on port ${process.env.NODE_DOCKER_PORT}.`)
+  console.log(`listening on port ${process.env.NODE_DOCKER_PORT}.`);
 });
