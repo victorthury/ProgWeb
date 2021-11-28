@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import { v4 as uuid } from 'uuid';
 import session from 'express-session';
 import swaggerUi from 'swagger-ui-express';
@@ -13,6 +14,7 @@ require('dotenv').config()
 const app = express();
 
 // middlewares
+app.use(cors({ origin: 'http://localhost:3021', credentials: true }))
 app.use(express.json());
 
 app.use(session({
@@ -20,7 +22,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
-  cookie: { expires: 10000 }
+  // cookie: { expires: 100000 }
 }));
 
 app.use(routes);

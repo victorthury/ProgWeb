@@ -5,7 +5,7 @@ module.exports = {
     await queryInterface.bulkInsert('TipoUsuarios', [
       {
         id: 1,
-        rotulo: 'empregado',
+        rotulo: 'colaborador',
         createdAt: new Date(),
         updatedAt: new Date(),
       },

@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon -r esm ./src/app.js",
-    "restart:migration": "npx sequelize db:drop  && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all",
+    "restart:migration": "npm run drop && npm run create && npm run migrate && npm run seed",
+    "drop": "docker exec -it shop_web_1 npx sequelize db:drop",
+    "create": "docker exec -it shop_web_1 npx sequelize db:create",
+    "migrate": "docker exec -it shop_web_1 npx sequelize db:migrate",
+    "seed": "docker exec -it shop_web_1 npx sequelize-cli db:seed:all",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,6 +21,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",

@@ -1,12 +1,12 @@
 import bcrypt from 'bcryptjs';
-import { Usuario, TipoUsuario } from '../models/'
+import { Usuario, TipoUsuario } from '../models/';
 
 const index = async (req, res) => {
   try {
     const usuarios = await Usuario.findAll({ include: TipoUsuario});
-    res.send(usuarios)
+    res.send(usuarios);
   } catch (error) {
-    res.status(500).send(error)
+    res.status(500).send(error);
   }
   
 }

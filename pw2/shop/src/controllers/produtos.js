@@ -18,20 +18,14 @@ const create = async (req, res) => {
 
     const { id } = produto;
     const { originalname } = req.file;
-    const dir = `./public/uploads/${id}`;
-
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir);
-    }
-
-    const newImageDir = `${dir}/${originalname}`;
+    const newImageDir = `./public/uploads/${id}.jpg`;
     const oldImageDir = `./public/uploads/${originalname}`;
 
     fs.rename(oldImageDir, newImageDir, err => {
       if (err) throw err;
-      console.log('Successfully renamed - AKA moved!')
+      console.log('Successfully renamed')
     });
-
+    console.log(produto)
     res.send(produto);
   } catch (error){
     res.status(500).json(error);
