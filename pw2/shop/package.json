@@ -6,6 +6,7 @@
   "scripts": {
     "start": "nodemon -r esm ./src/app.js",
     "restart:migration": "npm run drop && npm run create && npm run migrate && npm run seed",
+    "start:migration": "npm run create && npm run migrate && npm run seed",
     "drop": "docker exec -it shop_web_1 npx sequelize db:drop",
     "create": "docker exec -it shop_web_1 npx sequelize db:create",
     "migrate": "docker exec -it shop_web_1 npx sequelize db:migrate",
