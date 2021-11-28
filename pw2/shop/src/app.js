@@ -7,7 +7,7 @@ import swaggerDocument from './swagger.json';
 import routes from './routes';
 import userRouter from './routes/users';
 import productRouter from './routes/products';
-
+const path = require('path');
 
 require('dotenv').config()
 
@@ -16,6 +16,7 @@ const app = express();
 // middlewares
 app.use(cors({ origin: 'http://localhost:3021', credentials: true }))
 app.use(express.json());
+app.use('/image', express.static(path.join(__dirname, '../public/uploads')));
 
 app.use(session({
   genid: () => uuid(),

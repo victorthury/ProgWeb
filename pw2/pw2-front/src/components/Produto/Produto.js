@@ -28,6 +28,7 @@ function Produto() {
   const [inputComentario, setInputComentario] = useState('');
   const [limiteCompraError, setLimiteCompraError] = useState(false);
   const [limiteCompraUpdateError, setLimiteCompraUpdateError] = useState(false);
+  const [image, setImage] = useState('')
   const history = useHistory();
 
   const cartDispatch = useDispatch();
@@ -65,7 +66,6 @@ function Produto() {
       }
     } else {
       const { quantidade } = cart.produtos[itemInCartIndex]
-      console.log({atual: state.count, quantidade})
       if (state.count + quantidade <= produto.estoque) {
         setLimiteCompraUpdateError(false);
         cartDispatch(updateCart(state.count))
@@ -92,7 +92,16 @@ function Produto() {
     } )
   }, [id]);
 
-  console.log(produto)
+  useEffect(() => {
+    fetch(`http://localhost:3020/image/${id}.jpg`, {
+      method: 'GET',   
+      credentials: 'include',
+    })
+      .then(resp => resp)
+      .then(json => {
+        setImage(json.url)
+      })
+  }, [id, image]);
 
   return (
     <div>
@@ -116,7 +125,7 @@ function Produto() {
 
       <div className="d-grid mb-3">
         <span className="fs-4 fw-bold primary text-success">R${produto.preco}</span>
-        <img src={`../shop/public/uploads/${produto.id}.jpg`} alt="" />
+        {image && <img src={image} alt={produto.nome} style={{maxWidth: 720}}/>}
         <span>Estoque disponível: {produto.estoque}</span>
       </div>
       <h5>
