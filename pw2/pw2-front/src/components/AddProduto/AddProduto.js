@@ -26,10 +26,6 @@ function AddProduto() {
       formData.append(key, produto[key]);
     })
 
-    for (var value of formData.values()) {
-      console.log(value);
-    }
-
     // setIsPending(true);
 
     fetch('http://localhost:3020/produtos', {
@@ -37,7 +33,6 @@ function AddProduto() {
       credentials: 'include',
       body: formData
     }).then(resp => {
-      console.log('oi')
       return resp.json()
     })
     .then(json => {

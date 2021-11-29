@@ -59,15 +59,12 @@ function SignUp() {
       })
       .then(json => {
         if (json.conflict) {
-          console.log(json.msg)
+          alert(json.msg)
         } else {
-          console.log(json)
-          console.log(credenciais)
           history.push('/login');
         }
       });
     } else {
-      console.log('Fail')
       if (!emailValido) {
         serEmailFormatoError(true);
       } else {

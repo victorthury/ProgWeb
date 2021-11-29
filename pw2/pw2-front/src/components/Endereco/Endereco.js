@@ -65,9 +65,7 @@ function Endereco() {
       body: JSON.stringify(compra)
     }).then(resp => resp.json())
       .then(json => json)
-    console.log(compraResponse)
 
-    console.log(cart.produtos)
 
     const compraItems = cart.produtos.map(produto => {
       return {
@@ -77,7 +75,6 @@ function Endereco() {
       }
     })
 
-    console.log(compraItems)
 
     fetch(`${process.env.REACT_APP_API}/compraitems/`, {
       method: 'POST',
@@ -97,7 +94,7 @@ function Endereco() {
   const handleRadio = (e) => {
     setCheckedRadio(e.target.value)
     if (e.target.value === 'novo') {
-      console.log('habilitado')
+
       setDisable(false)
     } else {
       setDisable(true)
@@ -106,21 +103,21 @@ function Endereco() {
 
   useEffect(() => {
     if (user.logado) {
-      console.log(user)
+
       fetch(
         `${process.env.REACT_APP_API}/enderecos/${user.id}`,
         {credentials: 'include'}
       )
       .then(resp => {
         if(resp.status === 404) {
-          console.log('User nao tem end')
+    
           return {status: 404}
         }
         return resp.json()
       })
       .then(json =>{
         if (json.status === 404) {
-          console.log('Nao tem endereco')
+    
         } else {
           setEnderecos(json)
         }

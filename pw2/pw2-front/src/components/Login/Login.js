@@ -37,7 +37,6 @@ function Login() {
     .then(json => {
       if(json.loginSuccess !== false) {
         dispatch(login(json))
-        console.log(cart.loginPosTelaCompra)
         if (cart.loginPosTelaCompra){
           history.push('/endereco');
         } else {

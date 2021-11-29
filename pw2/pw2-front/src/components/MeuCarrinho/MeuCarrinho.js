@@ -39,7 +39,6 @@ function MeuCarrinho() {
     }
   }, [cart.produtos])
 
-  console.log(cart.produtos)
   return (
     <div>
       <h3>Carrinho de compras</h3>

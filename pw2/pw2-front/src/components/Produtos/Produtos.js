@@ -75,8 +75,6 @@ function Produtos() {
         className="form-control mb-3"
       />
 
-      {console.log(filterPage(1, produtos))}
-
       <ul className="list-group">
         {searchString === '' ?
           filterPage(state.count, produtos).map(produto =>
